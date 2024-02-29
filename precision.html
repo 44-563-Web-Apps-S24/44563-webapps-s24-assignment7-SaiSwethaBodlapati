@@ -1,77 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Speed Check</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Speed Check</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 
-  <h2>Swetha speed check</h2>
+    <h2>Swetha speed check</h2>
 
-  <div id="target"> Your Time</div>
-  <div id="counter">Count</div>
+    <div id="target"> Your Time</div>
+    <div id="counter">Count</div>
 
-  <button type="button"
-  class="btn btn-primary"
-  onclick="startTime()">
-  Start Timer</button>
-  <button type="button"
-  class="btn btn-primary"
-  onclick="recordTime()">
-  Stop Timer</button>
-  
-  
-  <script>
+    <button type="button" class="btn btn-primary" onclick="startTime()">
+        Start Timer</button>
+    <button type="button" class="btn btn-primary" onclick="recordTime()">
+        Stop Timer</button>
 
-let stopTime = undefined;
-  let startingTime;
-  let maxCountDown = 0;
 
-  function recordTime() {
-    if (stopTime === undefined) {
-      stopTime = Date.now();
-      console.log(stopTime);
-    }
-}
-function updateCounter(count) {
-    document.getElementById('counter').innerHTML = 'Count: ' + count;
-  }
+    <script>
 
-  function displayResult() {
-    if (stopTime === undefined) {
-      document.getElementById('target').innerHTML = 'Too Slow';
-    } else {
-      let elapsedTime = stopTime - startingTime;
-      document.getElementById('target').innerHTML = 'Time was ' + Math.abs(elapsedTime) + ' milliseconds';
-    }
-  }
+        let stopTime = undefined;
+        let startingTime;
+        let maxCountDown = 0;
 
-  function startTime() {
-      stopTime = undefined;
-      startingTime = Date.now()
-      maxCountDown = Math.floor(Math.random() * 8) + 2
-      for (let i = 0; i < maxCountDown; i++) {
-        setTimeout(function () {
-          document.getElementById('counter').innerHTML ='Count:'+i;
-        }, (maxCountDown - i) * 1000)
-      }
-      setTimeout(function () {
-        if (stopTime === undefined) {
-          document.getElementById("target").innerHTML = "Too Slow"
-        } else {
-          let elapsedTime = stopTime - startingTime;
-          document.getElementById('target').innerHTML = "Time was " + Math.abs(elapsedTime) + " milliseconds";
+        function recordTime() {
+            if (stopTime === undefined) {
+                stopTime = Date.now();
+                console.log(stopTime);
+            }
         }
-      }, maxCountDown * 1000);
+        function updateCounter(count) {
+            document.getElementById('counter').innerHTML = 'Count: ' + count;
+        }
 
-    }
+        function displayResult() {
+            if (stopTime === undefined) {
+                document.getElementById('target').innerHTML = 'Too Slow';
+            } else {
+                let elapsedTime = stopTime - startingTime;
+                document.getElementById('target').innerHTML = 'Time was ' + Math.abs(elapsedTime) + ' milliseconds';
+            }
+        }
 
-  </script>
+        function startTime() {
+            stopTime = undefined;
+            startingTime = Date.now()
+            maxCountDown = Math.floor(Math.random() * 8) + 2
+            for (let i = 0; i < maxCountDown; i++) {
+                setTimeout(function () {
+                    document.getElementById('counter').innerHTML = 'Count:' + i;
+                }, (maxCountDown - i) * 1000)
+            }
+            setTimeout(function () {
+                if (stopTime === undefined) {
+                    document.getElementById("target").innerHTML = "Too Slow"
+                } else {
+                    let elapsedTime = stopTime - startingTime;
+                    document.getElementById('target').innerHTML = "Time was " + Math.abs(elapsedTime) + " milliseconds";
+                }
+            }, maxCountDown * 1000);
+
+        }
+
+    </script>
 
 </body>
+
 </html>

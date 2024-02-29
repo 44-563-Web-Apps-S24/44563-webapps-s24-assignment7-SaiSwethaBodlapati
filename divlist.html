@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html> 
-    <head>
-        <title>List of items held in divs</title>
-         <style>
-    .flex-container {
-      display: flex;  flex-direction:row;
-      background-color: red;
-  }
+<html>
 
-.flex-container > div {  /*div children of the flex container*/
-  background-color: #f1f1f1; 
-  margin: 10px;  padding: 20px;  font-size: 30px;
-}
+<head>
+    <title>List of items held in divs</title>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: red;
+        }
 
-/* Responsive layout */
-@media (max-width: 600px) { 
-	 .flex-container{
-		 flex-direction:column;
-		 background-color: green;
-	  }
-	}
-</style></head>
+        .flex-container>div {
+            /*div children of the flex container*/
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: green;
+            }
+        }
+    </style>
+</head>
 
 
 
@@ -55,10 +61,10 @@
         let container = document.getElementsByClassName("divlist");
         if (container.length > 0) {
             var middleIndex = Math.floor(container.length / 2);
-			container[middleIndex].remove()
+            container[middleIndex].remove()
         }
     }
-    
+
 
     function addFront() {
         let element = createDiv();
@@ -99,4 +105,5 @@
         return (colorCounter++ % 2 === 0) ? "orange" : "blue";
     }
 </script>
-</html>	
+
+</html>
