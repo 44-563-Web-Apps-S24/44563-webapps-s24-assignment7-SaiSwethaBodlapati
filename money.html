@@ -84,6 +84,9 @@ header {
     </div>    
     <button type="button" class="btn btn-primary" onclick="showHelpReport()">Show Help Report</button>
     </div>
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary" onclick="newGame()">New Game</button>
     <script>
         function showHelpReport() {
           var help = document.getElementById("help");
@@ -210,6 +213,16 @@ header {
           help_text.innerHTML = "All clear";
       }
   }
+  function newGame() {
+            monsterLocation = Math.floor(Math.random() * 35);
+            fancyCoinLocations = Math.floor(Math.random() * 35);
+            console.log(monsterLocation);
+            console.log(fancyCoinLocations);
+            score=null;
+            locations=null;
+            document.getElementById("locations").innerText =`locations: 0`;
+            document.getElementById("score").innerText = `score: 0`;
+        }
   </script>
 	
 	</body>
