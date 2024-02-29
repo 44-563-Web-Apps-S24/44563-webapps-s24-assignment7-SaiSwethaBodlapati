@@ -222,11 +222,16 @@
         help_text.innerHTML = "All clear";
       }
     }
-    function newGame() {
+    function newGame() {      
       monsterLocation = Math.floor(Math.random() * 35);
       fancyCoinLocations = Math.floor(Math.random() * 35);
       console.log(monsterLocation);
       console.log(fancyCoinLocations);
+      let imgrest = document.getElementsByTagName("img");
+                for (i=0; i < imgrest.length; i++){
+                    imgrest[i].src ="image01.jpg";
+                }
+            
       score = null;
       locations = null;
       document.getElementById("locations").innerText = `locations: 0`;
