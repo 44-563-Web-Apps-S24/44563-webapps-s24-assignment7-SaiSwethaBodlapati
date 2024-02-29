@@ -222,20 +222,19 @@
         help_text.innerHTML = "All clear";
       }
     }
-    function newGame() {      
-      monsterLocation = Math.floor(Math.random() * 35);
-      fancyCoinLocations = Math.floor(Math.random() * 35);
-      console.log(monsterLocation);
-      console.log(fancyCoinLocations);
+    function newGame() {
+      score = 0;
+      locations = 0;
       let imgrest = document.getElementsByTagName("img");
-                for (i=0; i < imgrest.length; i++){
-                    imgrest[i].src ="image01.jpg";
-                }
-            
-      score = null;
-      locations = null;
-      document.getElementById("locations").innerText = `locations: 0`;
-      document.getElementById("score").innerText = `score: 0`;
+      for (let i = 0; i < imgrest.length; i++) {
+        imgrest[i].src = "image01.jpg";
+      }
+      monsterLocation = Math.floor(Math.random() * 35);
+      for (let i = 0; i < fancyCoinLocations.length; i++) {
+        fancyCoinLocations[i] = Math.floor(Math.random() * 35);
+      }
+      document.getElementById("score").innerText = "Score:" + score ;
+      document.getElementById("locations").innerText = "Locations :" + locations ;
     }
   </script>
 
