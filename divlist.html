@@ -66,7 +66,26 @@
         container.insertBefore(element, container.firstChild);
     }
 
-    
+    function swap() {
+        let container = document.getElementById('target');
+        let len = container.children.length;
+
+        if (len > 1) {
+            let index1 = Math.floor(Math.random() * len);
+            let index2;
+
+            do {
+                index2 = Math.floor(Math.random() * len);
+            } while (index1 === index2);
+
+            let element1 = container.children[index1];
+            let element2 = container.children[index2];
+
+            container.insertBefore(element2, container.children[index1]);
+            container.insertBefore(element1, container.children[index2]);
+        }
+    }
+
     function createDiv() {
         let element = document.createElement("div");
         element.innerHTML = document.querySelector("input").value;
