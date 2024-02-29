@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>List of items held in divs</title>
+         <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+
+
+
+<body>
+    <h2>Swetha builds list with divs</h2>
+    <label for="text">Enter the Text Here: </label>
+    <input type="text" style="margin-bottom: 10px;">
+
+    <div class="flex-container" id="target">
+        <div class="divlist" id="div0">row item 1</div>
+        <div class="divlist" id="div1">row item 2</div>
+        <div class="divlist" id="div2">row item 3</div>
+    </div>
+
+    <p> Press the button to create a new element of type div and then add it to the container.</p>
+    <button onclick="makeNewDiv()">Add end</button>
+    <button onclick="addFront()">Add Front</button>
+    <button onclick="remove()">Remove</button>
+    <button onclick="swap()">Swap</button>
+</body>
+<script>
+    let colorCounter = 0;
+    let divCount = 3;
+
+    function makeNewDiv() {
+        let element = createDiv();
+        let container = document.getElementById('target');
+        container.appendChild(element);
+    }
+
+    function remove() {
+        let container = document.getElementsByClassName("divlist");
+        if (container.length > 0) {
+            var middleIndex = Math.floor(container.length / 2);
+			container[middleIndex].remove()
+        }
+    }
+    
+
+    function addFront() {
+        let element = createDiv();
+        let container = document.getElementById('target');
+        container.insertBefore(element, container.firstChild);
+    }
+
+    
+    function createDiv() {
+        let element = document.createElement("div");
+        element.innerHTML = document.querySelector("input").value;
+        element.style.color = getColor();
+        element.className = "divlist";
+        element.id = "div" + divCount++;
+        return element;
+    }
+
+    function getColor() {
+        return (colorCounter++ % 2 === 0) ? "orange" : "blue";
+    }
+</script>
+</html>	
